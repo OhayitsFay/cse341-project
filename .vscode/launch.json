@@ -1,0 +1,19 @@
+{
+    "version£": "0.2.0",
+    "configurations":[
+        {
+            "name": "Launch via NPM",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\server.js",
+            "type": "node"
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+// LOCALHOST
+/// INFO COLLECTION
+### GET all event info
+GET http://localhost:5000/info
+
+### GET event info by ID
+GET http://localhost:5000/info/679eaa61e3ca7b30a18b939f
+ 
+### CREATE a new event info
+POST http://localhost:5000/info HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Birthday Party",
+    "date": "2025-02-21",
+    "location": "Kano, Nigeria",
+    "budget": "250000",
+    "description": "A fun filled birthday celebration with games, music, and delicious food for friends and family.",
+    "guestCount": "60",
+    "organizer": "Ayo Ayimakun"
+}
+
+### PUT event info
+PUT http://localhost:5000/info/679eab26e3ca7b30a18b93a0 HTTP/1.1
+Content-Type: application/json 
+
+{
+    "name": "Charity Fundraiser",
+    "date": "2025-09-20",
+    "location": "Port Harcourt, Nigeria",
+    "budget": "750000",
+    "description": "A fundraising event to support underprivileged children with donations, entertainments, and auctions.",
+    "guestCount": "150",
+    "organizer": "Hope Foundation"
+}
+
+### DELETE event info
+DELETE http://localhost:5000/info/67a046c24b779921c464f306 HTTP/1.1
+Content-Type: application/json
+------------------------------------------------------------------------------------
+/// USERS COLLECTION
+### Get all users
+GET http://localhost:5000/user
+
+### GET user by ID
+GET http://localhost:5000/user/67a01bfa5557d320ba88a4bd
+
+#### CREATE new user
+POST http://localhost:5000/user/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Hope Foundation",
+    "email": "hopefoundationltd@email.com",
+    "password": "password_456",
+    "role": "organizer",
+    "created_at": "2025-02-01",
+    "status": "active",
+    "last_login": "2025-02-02T12:28:00Z"
+}
+
+#### PUT new user
+PUT http://localhost:5000/user/67a01cc85557d320ba88a4be HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Justice Omenuko",
+    "email": "justiceomenuko@email.com",
+    "password": "password_456",
+    "role": "user",
+    "created_at": "2025-01-30",
+    "status": "active",
+    "last_login": "2025-01-31T08:45:00Z"
+}
+
+### DELETE user
+DELETE http://localhost:5000/user/67a04acc5ec17b0e51042766 HTTP/1.1
+Content-Type: application/json
+------------------------------------------------------------------------------------
+
+
+//PRODUCTION
+/// INFO COLLECTION
+### GET all event info
+GET http:///info
+
+### GET event info by ID
+GET http://localhost:5000/info/679eaa61e3ca7b30a18b939f
+ 
+### CREATE a new event info
+POST http://localhost:5000/info HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Birthday Party",
+    "date": "2025-02-21",
+    "location": "Kano, Nigeria",
+    "budget": "250000",
+    "description": "A fun filled birthday celebration with games, music, and delicious food for friends and family.",
+    "guestCount": "60",
+    "organizer": "Ayo Ayimakun"
+}
+
+### PUT event info
+PUT http://localhost:5000/info/679eab26e3ca7b30a18b93a0 HTTP/1.1
+Content-Type: application/json 
+
+{
+    "name": "Charity Fundraiser",
+    "date": "2025-09-20",
+    "location": "Jos, Nigeria",
+    "budget": "750000",
+    "description": "A fundraising event to support underprivileged children with donations, entertainments, and auctions.",
+    "guestCount": "150",
+    "organizer": "Hope Foundation"
+}
+
+### DELETE event info
+DELETE http://localhost:5000/info/67a01473515b1fc6dca8bfe9 HTTP/1.1
+Content-Type: application/json
+------------------------------------------------------------------------------------
+/// USERS COLLECTION
+### Get all users
+GET http://localhost:5000/user
+
+### GET user by ID
+GET http://localhost:5000/user/67a01bfa5557d320ba88a4bd
+
+#### CREATE new user
+POST http://localhost:5000/user/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Hope Foundation",
+    "email": "hopefoundationltd@email.com",
+    "password": "password_456",
+    "role": "organizer",
+    "created_at": "2025-02-01",
+    "status": "active",
+    "last_login": "2025-02-02T12:28:00Z"
+}
+
+#### PUT new user
+PUT http://localhost:5000/user/67a01cc85557d320ba88a4be HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Justice Omenuko",
+    "email": "justiceomenuko@email.com",
+    "password": "password_456",
+    "role": "user",
+    "created_at": "2025-01-30",
+    "status": "active",
+    "last_login": "2025-01-31T08:45:00Z"
+}
+
+### DELETE user
+DELETE http://localhost:5000/user/67a0275fad64ef0a9e142213 HTTP/1.1
+Content-Type: application/json
+------------------------------------------------------------------------------------
+
+//PRODUCTION
