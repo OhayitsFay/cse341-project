@@ -1,15 +1,25 @@
 const express = require('express');
+const passport = require('passport');
 const router = express.Router();
 
 router.use('/', require('./swagger'));
 router.get('/', (req, res) => {
-    //#swagger.tags=['Hello World']
-    res.send('Hello World');
+    res.send('Welcome to the Event Planning API');
 });
+
+const userRoutes = require('./user');
+router.use('/users', userRoutes);
+
 const infoRoutes = require('./info');
 router.use('/info', infoRoutes);
 
-const userRoutes = require('./user');
-router.use('/user', userRoutes);
+router.get('/login', passport.authenticate('github'), (req, res) => {});
+
+router.get('/logout', function(req, res, next) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+});
 
 module.exports = router;

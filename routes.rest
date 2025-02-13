@@ -110,7 +110,7 @@ Content-Type: application/json
 {
     "name": "Charity Fundraiser",
     "date": "2025-09-20",
-    "location": "Jos, Nigeria",
+    "location": "Ibadan, Nigeria",
     "budget": "750000",
     "description": "A fundraising event to support underprivileged children with donations, entertainments, and auctions.",
     "guestCount": "150",
@@ -118,7 +118,7 @@ Content-Type: application/json
 }
 
 ### DELETE event info
-DELETE https://cse341-project-aryv.onrender.com/info/67a01473515b1fc6dca8bfe9 HTTP/1.1
+DELETE https://cse341-project-aryv.onrender.com/info/67a0646e87453ca03d773092 HTTP/1.1
 Content-Type: application/json
 ------------------------------------------------------------------------------------
 /// USERS COLLECTION
@@ -147,7 +147,7 @@ PUT https://cse341-project-aryv.onrender.com/user/67a01cc85557d320ba88a4be HTTP/
 Content-Type: application/json
 
 {
-    "name": "Justice Omenuko",
+    "name": "Justice Kelechi Omenuko",
     "email": "justiceomenuko@email.com",
     "password": "password_456",
     "role": "user",
@@ -157,6 +157,6 @@ Content-Type: application/json
 }
 
 ### DELETE user
-DELETE https://cse341-project-aryv.onrender.com/user/67a0275fad64ef0a9e142213 HTTP/1.1
+DELETE https://cse341-project-aryv.onrender.com/user/67a064c287453ca03d773093 HTTP/1.1
 Content-Type: application/json
 ------------------------------------------------------------------------------------
