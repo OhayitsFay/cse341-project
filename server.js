@@ -57,7 +57,7 @@ mongodb.initDb((err) => {
     } else {
         app.listen(port, () => {
             console.log(`Server running on port ${port}`);
-        }); // Server is running on port 3000
+        }); // Server is running on port 5000
     }
 });
 
