@@ -28,12 +28,16 @@ app
   .use(cors({origin: '*'}))// allow to server to accept request from different origin
   .use("/", require('./routes/index'));
 
+process.on('uncaughtException', (err) => {
+  console.log(process.stderr.fd, `Caught exception: ${err} \n Exception origin: ${origin}`);
+});
+
   passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.CALLBACK_URL
   },
-    function (_accessToken, _refreshToken, profile, done) {
+    function (accessToken, refreshToken, profile, done) {
       return done(null, profile);
     }
   ));
@@ -43,16 +47,6 @@ app
   passport.deserializeUser((user, done) => {
     done(null, user);
   });
-
-app.get('/', (req, res) => { res.send(res.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
-
-app.get('/github/callback', passport.authenticate('github', { 
-  failureRedirect: '/api-docs', session: false}),
-  (req, res) => {
-  req.session.user = req.user;
-  res.redirect('/');
-  });
-
 
 mongodb.initDb((err) => {
     if (err) {

@@ -5,8 +5,8 @@ const doc = {
         title:'Event Planning API',
         description: 'Event Planning API'
     },
-    host: 'localhost:5000',
-    schemes: ['http', 'https']
+    host: 'cse341-project-aryv.onrender.com',
+    schemes: ['https']
 };
 
 const outputFile = './swagger.json';
