@@ -1,4 +1,4 @@
-const isAutehnticated = (req, res, next) => {
+const isAuthenticated = (req, res, next) => {
     if (req.session.user === undefined){
       return res.status(401).json("You don't have permission to access this resource");
     }
@@ -6,4 +6,4 @@ const isAutehnticated = (req, res, next) => {
 };
 
 
-module.exports = { isAutehnticated }
+module.exports = { isAuthenticated }

@@ -10,34 +10,37 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app
-  .use(session({ secret: 'secret', resave: false, saveUninitialized: true }))
+  .use(session({ 
+    secret: process.env.SESSION_SECRET, 
+    resave: false, 
+    saveUninitialized: true }))
   .use(passport.initialize())
   .use(passport.session())
   .use(bodyParser.json())
 
   .use((_req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTION');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization');
     next(); 
   })
   .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']})) // allow to server to accept request from different origin
   .use(cors({origin: '*'}))// allow to server to accept request from different origin
-  .use("/", require('./routes/index.js'));
+  .use("/", require('./routes/index'));
 
   passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: process.env.GITHUB_CALLBACK_URL
+    callbackURL: process.env.CALLBACK_URL
   },
     function (_accessToken, _refreshToken, profile, done) {
       return done(null, profile);
     }
   ));
-  passport.serializeUser(function (user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user);
   });
-  passport.deserializeUser(function (user, done) {
+  passport.deserializeUser((user, done) => {
     done(null, user);
   });
 
