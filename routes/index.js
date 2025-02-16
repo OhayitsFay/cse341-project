@@ -5,9 +5,9 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
 
 const passport = require('passport');
-const session = require('express-session');
 
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 router.get('/', (req, res) => {
     if (req.session.user) {
         res.send('<p>Hello! Welcome to Event Planning</p>' +
@@ -17,17 +17,17 @@ router.get('/', (req, res) => {
     } else {
         res.send('<p>Hello! Welcome to Event Planning</p>' +
           '<br> <a href="/api-docs">API Documentation</a>' +
-          '<br> <a href="/github">Login with GitHub</a>');
+          '<br> <a href="/auth/github">Login with GitHub</a>');
     }
 });
     
-router.get('/github', passport.authenticate('github'));
+router.get('/auth/github', passport.authenticate('github'));
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');
 });
     
-router.get('/github/callback', passport.authenticate('github', { 
+router.get('/auth/github/callback', passport.authenticate('github', { 
     failureRedirect: '/',
     session: false
 }), (req, res) => {

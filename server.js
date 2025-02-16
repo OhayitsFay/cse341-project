@@ -26,7 +26,8 @@ app
   })
   .use(cors({methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']})) // allow to server to accept request from different origin
   .use(cors({origin: '*'}))// allow to server to accept request from different origin
-  .use("/", require('./routes/index'));
+  
+app.use("/", require('./routes/index.js'));
 
 process.on('uncaughtException', (err) => {
   console.log(process.stderr.fd, `Caught exception: ${err} \n Exception origin: ${origin}`);
@@ -41,10 +42,10 @@ process.on('uncaughtException', (err) => {
       return done(null, profile);
     }
   ));
-  passport.serializeUser((user, done) => {
+  passport.serializeUser(function(user, done) {
     done(null, user);
   });
-  passport.deserializeUser((user, done) => {
+  passport.deserializeUser(function(user, done) {
     done(null, user);
   });
 

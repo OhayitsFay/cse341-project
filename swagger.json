@@ -21,7 +21,7 @@
         }
       }
     },
-    "/github": {
+    "/auth/github": {
       "get": {
         "description": "",
         "responses": {
@@ -41,7 +41,7 @@
         }
       }
     },
-    "/github/callback": {
+    "/auth/github/callback": {
       "get": {
         "description": "",
         "responses": {
